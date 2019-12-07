@@ -1,0 +1,21 @@
+body{
+  font-family:Tahoma,Verdana, Tahoma, Arial, sans-serif;
+}
+.listaItemViagem{
+  border:1px solid silver;
+  display: block;
+}
+.listaItemViagem h2 {
+	color: rgb(0,102,255);
+	font-size: 1.5em;
+	font-family: Trebuchet MS, Verdana, Helvetica, Arial, Times New Roman, Georgia;
+	font-weight: normal;
+	margin: 0px;
+	text-decoration: none;
+}
+	
+
+.listaItemViagem img{
+  float:left;
+  margin:3px 0 3px 0px;
+}

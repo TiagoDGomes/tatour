@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <link href="estilo.css" rel="stylesheet" type="text/css" />
+        <link href="estiloT.css" rel="stylesheet" type="text/css" />
+        <link href="window-modal.css" rel="stylesheet" type="text/css" />
+        <title>TATOUR - Viagens para quem gosta de aventura</title>
+        <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.regexp.js"></script>
+        <script type="text/javascript" src="js/jquery.collapser.js"></script>
+        <script type="text/javascript" src="js/window-modal.js"></script>
+        
+        <script type="text/javascript" src="js/coresCat.js"></script>
+        <script type="text/javascript" src="js/conteudo.js"></script>
+        
+        
+        <link rel="stylesheet" href="lightbox.css" type="text/css" media="screen" />
+        
+
+        
+        <script type="text/javascript">
+             $(document).ready(function(){
+              	$.ajax({url: "main.html", success: function(data) {$("#dynamicMain").html(data);}});
+              	atualizaLateral();
+              	   
+                // Janela Modal   
+                /*            
+                      //seleciona os elementos a com atributo name="modal"
+                      $('a[name=modal]').click(function(e) {
+                            //cancela o comportamento padr&atilde;o do link
+                            e.preventDefault();
+                            
+                            //armazena o atributo href do link
+                            var id = $(this).attr('href');
+                            
+                            //armazena a largura e a altura da tela
+                            var maskHeight = $(document).height();
+                            var maskWidth = $(window).width();
+                            
+                            //Define largura e altura do div#mask iguais &aacute;s dimens&otilde;es da tela
+                            $('#mask').css({'width':maskWidth,'height':maskHeight});
+                            
+                            //efeito de transi&ccedil;&atilde;o
+                            //$('#mask').fadeIn(300);
+                            $('#mask').fadeTo("fast",0.9);
+                            
+                            //armazena a largura e a altura da janela
+                            var winH = $(window).height();
+                            var winW = $(window).width();
+                            //centraliza na tela a janela popup
+                            $(id).css('top',  winH/2-$(id).height()/2);
+                            $(id).css('left', winW/2-$(id).width()/2);
+                            //efeito de transi&ccedil;&atilde;o
+                            $(id).fadeIn(500);
+                      });
+                 */      
+                      //se o bot&atilde;o fechar for clicado
+                      $('.window .close').click(function (e) {
+                          //cancela o comportamento padr&atilde;o do link
+                          e.preventDefault();
+                          $('#mask, .window').hide();
+                      });
+                      
+                      //se div#mask for clicado
+                      $('#mask').click(function () {
+                          $(this).hide();
+                          $('.window').hide();
+                      });
+                
+            
+              });
+        </script>
+
+
+        
+    </head>
+    <body>
+                    <div id="boxes">
+              <!-- #personalize sua janela modal aqui -->
+                            
+                <div id="dialog" class="window"></div>
+                            
+                <!-- N&atilde;o remova o div#mask, pois ele &eacute; necess&aacute;rio para preencher toda a janela -->
+                <div id="mask"></div>
+            </div>
+
+        <div id="container">
+         
+        <div id="login">
+                <!--<a class="linkLogin" href="javascript:showLogin()">Fazer login</a> &nbsp; <a id="linkNewUser" href="#">Ainda n&Ograve;o sou cadastrado</a>-->
+                Bem-vindo! J&#225; &#233; um membro? <a id="linkNewUser"  href="#"  onclick="javascript:verConteudo('novousuario.html')"  >Entrar</a>              
+            </div>
+            <div id="bannerTitulo">
+                <img src="imagens/banner.gif" id="bannerLogo" />
+                <object id="bannerFotos" type="application/x-shockwave-flash" data="imagens/banner3.swf" 
+                        width="250" height="270">
+                    <param name="movie" value="imagens/banner3.swf" /> 
+                    <param name="wmode" value="transparent" /> 
+                    <param name="menu" value="false" />  
+                </object>
+            </div>
+
+            <div id="menu">
+                <ul class="menu">
+                    <li><a id="lyHome" href="#" onclick="javascript:verConteudo('main.html')" ><span>Home</span></a></li>
+                    <li><a id="lyHistoria"  href="#" onclick="javascript:verConteudo('historia.html','#EFB37F repeat-x url(img/historia.jpg)')")" ><span>Hist&oacute;ria</span></a></li>
+                    <li><a id="lyVoos" href="#" onclick="javascript:verConteudo('voos.html')" ><span>Voos</span></a></li>
+                    <li><a id="lyPromocoes" href="#" onclick="javascript:verConteudo('promocoes.html')"><span>Promo&ccedil;&otilde;es</span></a></li>
+                    <li><a id="lyCruzeiros" href="#" onclick="javascript:verConteudo('cruzeiros.html','#EFB37F repeat-x url(img/mar-back.jpg)')"><span>Cruzeiros</span></a></li>
+                    <li class="last"><a id="lyNewsLetter" href="#" onclick="javascript:verConteudo('newsletter.html')"><span>Newsletter</span></a></li>
+                </ul>
+            </div>
+
+           <div id="conteudoLateral">
+                
+           </div>
+
+            <div id="conteudo">
+
+ 
+                
+                                                                                        
+                <!-- in&Yacute;cio conteudo dinamico -->
+                <div id="dynamicMain">
+    
+                </div>
+                <!-- fim conteudo dinamico -->
+                <br style="clear:both" />
+                <h3><a href="javascript:verConteudo('categorias.html')" id="lyCategorias">Categorias</a></h3>
+                <div id="categorias"> 
+                    <hr noshade>
+                    
+                    <a id="gls_praia" href="javascript:verConteudo('praias.html','#260402 repeat-x url(img/praia-back.jpg)')" onmouseover="mudaCorCat('#FBB349')"><img src="imagens/praia-mini.jpg" /></a>
+                    <a id="gls_montanha" href="javascript:verConteudo('montanhas.html','repeat-x url(img/mountain-back.jpg)')" onmouseover="mudaCorCat('#efefef')"><img src="imagens/montanha-mini.jpg" /></a>
+                    <a id="gls_mata" href="javascript:verConteudo('matas.html','#164001 repeat-x url(img/forest2-back.jpg)')" onmouseover="mudaCorCat('#557B40')"><img src="imagens/mata-mini.jpg" /></a>
+                    <a id="gls_cruzeiro" href="javascript:verConteudo('cruzeiros.html','#EFB37F repeat-x url(img/mar-back.jpg)')" onmouseover="mudaCorCat('#3A79B3')"><img src="imagens/cruzeiro-mini.jpg" /></a>
+                    <hr noshade>
+                </div>
+            </div>
+
+
+        <div id="rodape">
+            <address>
+                <p> <a href="javascript:showTerms()">Termos de uso</a> - <a href="javascript:showPrivacy();">Privacidade</a> - <a href="javascript:verConteudo('historia.html');">Sobre TATOUR</a></p>
+                <p>Produzido por Bruna, Paulo, Tiago e Zanelli &reg;. Todos os direitos reservados</p>
+               
+                <p class="alert">(As informa&ccedil;&otilde;es, dados ou qualquer fato relatado neste site s&atilde;o fict&iacute;cios e foram obtidos de outros sites, tendo apenas algumas modifica&ccedil;&otilde;es para fins acad&ecirc;micos. Este n&atilde;o &eacute; um site real de ag&Ucirc;ncia de viagens. Clique <a href="comofoifeito.html">aqui</a> para ver como &eacute; a estrutura do site)</p>
+            </address>
+        </div>
+        
+    </body>
+</html>

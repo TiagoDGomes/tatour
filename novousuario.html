@@ -1,0 +1,80 @@
+<h2>Entre agora mesmo!</h2>
+<div>
+  <div class="selectSignin">
+    <input name="selectSignin" type="radio" id="selectSigninLogin" onclick="showSelectSignin(1)"  /><label class="select" for="selectSigninLogin">Entrar na minha conta j&aacute; existente</label>
+  
+    <div id="dLogin" class="formSignin">
+                  <form id="formLogin" class="formLogin" action="" method="post" >
+                          <div class="alert">Para a seguran&ccedil;a de sua conta, por favor entre para verificar sua identidade. </div>
+                          <label class="lText" for="frmLoginUser">Nome de usu&aacute;rio:</label><input id="frmLoginUser" type="text" name="user" size="16" /> <br>
+                          <label class="lText" for="frmLoginPass">Senha:</label><input id="frmLoginPass" type="password" name="senha" size="16" /><br> 
+                          <div class="submit">
+                                <input type="submit" value="Entrar" />&nbsp;
+                                <a href="javascript:forgetPassword()">Esqueci minha senha</a>&nbsp;
+                          </div>
+                       
+                  </form>
+                  <form style="display:none" id="formForget" class="formLogin" action="" method="post" >
+                          <div class="alert">Para recuperar seu nome de usu&aacute;rio e senha, por favor insira seu e-mail. </div>
+                          <label class="lText" for="frmLoginEmail">E-mail:</label>
+                          <input id="frmLoginEmail" type="text" name="emailForget" size="45" /> &emsp;
+                          <div class="submit">
+                            <input type="submit" value="Resetar senha" />&emsp; 
+                            <input type="button" onclick="javascript:hideForget()" value="Cancelar" />
+                          </div>                     
+                  </form>
+    </div>
+  </div>
+ 
+  <div class="selectSignin">
+    <input name="selectSignin" type="radio" id="selectSigninNew" onclick="showSelectSignin(2)" /><label class="select" id="" for="selectSigninNew">Criar uma nova conta</label>
+
+    <div id="dNew" class="formSignin">
+          <form name="formSignin" id="formSignin" class="formLogin" action="" method="post" onsubmit="return onSubmitFormSignin()") >
+
+                <label class="lText" for="frmSigninUser1">Primeiro nome:</label><input id="frmSigninUser1" type="text" name="user1" size="16" /> <br>
+                <label class="lText" for="frmSigninUser2">Nome do meio:</label><input id="frmSigninUser2" type="text" name="user2" size="16" /> <br>
+                <label class="lText" for="frmSigninUser3">&Uacute;ltimo nome:</label><input id="frmSigninUser3" type="text" name="user3" size="16" /> <br>
+                <div class="alert"><b>Dica:</b> Esteja certo de que o nome utilizado &eacute; o mesmo do seu passaporte.  </div>
+                <label class="lText" for="frmSigninCPF">CPF:</label><input onchange="msgCheckCPF('#frmSigninCPF','#msgValidCPF')" id="frmSigninCPF" type="text" name="cpf" size="15" /><span id="msgValidCPF"></span>  <br>
+                <label class="lText" for="frmSigninEndereco">Endere&ccedil;o:</label><input id="frmSigninEndereco" type="text" name="endereco" size="45" /> <br>
+                <label class="lText" for="frmSigninCidade">Cidade:</label><input id="frmSigninCidade" type="text" name="cidade" size="35" /> <br>
+                          
+                <hr>
+                
+                
+                <label class="lText" for="frmSigninEmail">E-mail:</label><input onchange="msgCheckEmail('#frmSigninEmail','#msgValidEmail')" id="frmSigninEmail" type="text" name="email" size="35" /><span id="msgValidEmail"></span> <br>
+                <input type="checkbox" checked="true" id="frmSigninNewsEmail" name="sendMail" /><label for="frmSigninNewsEmail">Enviar not&iacute;cias sobre promo&ccedil;&otilde;es e novidades da TATOUR por e-mail</label>
+                <hr>
+                <div class="alert">Senhas fortes s&atilde;o importantes para ajudar voc&ecirc; a ter mais seguran&ccedil;a nas transa&ccedil;&otilde;es online. <br>
+                  Sempre que poss&iacute;vel, usar letras, pontua&ccedil;&atilde;o, s&iacute;mbolos e n&uacute;meros para criar senhas seguras!
+                </div>
+                
+                <label class="lText" for="frmSigninPass">Senha:</label><input id="frmSigninPass" type="password" name="pass" size="15" /> <br>
+                <label class="lText" for="frmSigninPassRep">Repetir senha:</label><input id="frmSigninPassRep" type="password" name="passRep" size="15" /> <br>
+                <hr>
+                <input type="checkbox" id="frmSigninReadTerms" name="readTerms" />
+                <label for="frmSigninReadTerms">Eu li os  </label><a href="javascript:showTerms()">Termos de utiliza&ccedil;&atilde;o de servi&ccedil;o</a> e <a href="javascript:showPrivacy()">Politica de privacidade</a>
+                <div class="submit">
+                            <input type="submit" value="Cadastrar" />&emsp; 
+                </div>   
+                          
+          </form>
+    </div>
+  </div>
+  
+  
+  <div class="selectSignin">
+    <input name="selectSignin" type="radio" id="selectSigninGuest"  onclick="showSelectSignin(3)" /><label class="select" id="" for="selectSigninGuest">Continuar como convidado</label>
+  
+    <div id="dGuest" class="formSignin">
+          <form id="formSignin" class="formLogin" action="" method="post" >     
+               <input type="checkbox" id="frmGuestReadTerms" name="readTerms" />
+                <label for="frmGuestReadTerms">Eu li os <a href="javascript:showTerms()">Termos de utiliza&ccedil;&atilde;o de servi&ccedil;o</a> e <a href="javascript:showPrivacy()">Politica de privacidade</a> </label>
+                <div class="submit">
+                            <input type="submit" value="Continuar" />&emsp; 
+                </div>
+           </form> 
+    </div>
+  </div>
+</div>

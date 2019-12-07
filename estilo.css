@@ -1,0 +1,97 @@
+/* 
+    Document   : estilo
+    Created on : 28/03/2011, 21:58:31
+    Author     : Paulo
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+div{
+    border: 0px solid black;
+}
+
+body{
+    margin: 5px 0 0 0;
+    padding: 0 0 0 0;
+    text-align: center;
+
+}
+body, table{
+    font-family: arial,helvetica, sans-serif;
+}
+
+/*#bannerTitulo{
+    background-image: url("imagens/banner.gif");
+    background-repeat: no-repeat;
+}*/
+#bannerTitulo h1{
+    display: none;
+}
+
+#container{
+    width: 760px;
+    margin: 0 auto;
+    text-align: left;
+    border: 1px solid black;
+}
+
+#conteudoLateral{
+    width: 20%;
+   
+    float: right;
+}
+
+#conteudo{
+    width: 79%;
+}
+
+#menu{
+    margin-left: -32px;
+}
+
+
+#menu ul li{
+    display: inline-block;
+    width: 120px;
+    background-color: aquamarine;
+    text-align: center;   
+}
+
+
+
+#categorias{
+    background-color: #ffffff;
+    text-align: center;
+    
+    /*  #faf389   #91baf5  #99ff99 #efefef*/
+}
+
+#categorias img{
+    margin: 7px;
+}
+
+.descricao-pacote{
+    margin-left: 260px;
+}
+
+.descricao-pacote a{
+    color: black;
+    text-decoration: none;
+}
+
+.im{
+    /*configura a imagem do pacote e o link pra ver as fotos*/
+    float: left;
+    margin: 10px 10px 10px 1px;
+}
+
+.itemPacote{
+    cursor: url;
+}
+.itemPacoteImg{
+    float: left
+}
